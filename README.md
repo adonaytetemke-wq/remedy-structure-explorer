@@ -28,8 +28,8 @@ Click a badge to open the notebook in Colab.
 > and Δ values below are **provisional**.
 
 - Docking validation:* COX-2 celecoxib re-dock RMSD = 0.56 Å (pass); COX-1 ibuprofen re-dock RMSD = 6.11 Å (fail, threshold 2 Å). Aspirin notebook ibuprofen re-dock RMSD = 6.15 Å
-- *Aspirin docking score:* -6.41 kcal/mol; residues within 4 Å (heavy atoms): TYR348, VAL349, LEU352, LEU384, TYR385, TRP387, PHE518, MET522, ILE523, GLY526, SER530
-- *MD:* mean aspirin RMSD = [TODO] Å over [TODO] ns
+- *Aspirin docking score:* -6.41 kcal/mol; residues within 4 Å (heavy atoms): TYR348, VAL349, LEU352, LEU384, TYR385, TRP387, PHE518, MET522, ILE523, GLY526, SER530.
+-  *MD:* mean aspirin RMSD = 2.11 Å over 0.5 ns (100% contact < 4 Å with Ser530 and Tyr385).
 - **Selectivity:** Δ = COX-2 score minus COX-1 score (more negative favours
   COX-2). Mean Δ for COX-2-selective drugs = **-4.83 kcal/mol**; for the
   other five drugs = **-0.42 kcal/mol**.
