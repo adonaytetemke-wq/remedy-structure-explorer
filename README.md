@@ -27,7 +27,7 @@ Click a badge to open the notebook in Colab.
 > COX-1 re-docking currently fails validation (6.11 Å), so COX-1 scores
 > and Δ values below are **provisional**.
 
-- Docking validation:* COX-2 celecoxib re-dock RMSD = 0.56 Å (pass); COX-1 ibuprofen re-dock RMSD = 6.11 Å (fail, threshold 2 Å). Aspirin notebook ibuprofen re-dock RMSD = 6.15 Å
+- *Docking validation:* COX-2 celecoxib re-dock RMSD = 0.56 Å (pass); COX-1 ibuprofen re-dock RMSD = 6.11 Å (fail, threshold 2 Å). Aspirin notebook ibuprofen re-dock RMSD = 6.15 Å
 - *Aspirin docking score:* -6.41 kcal/mol; residues within 4 Å (heavy atoms): TYR348, VAL349, LEU352, LEU384, TYR385, TRP387, PHE518, MET522, ILE523, GLY526, SER530.
 -  *MD:* mean aspirin RMSD = 2.11 Å over 0.5 ns (100% contact < 4 Å with Ser530 and Tyr385).
 - **Selectivity:** Δ = COX-2 score minus COX-1 score (more negative favours
@@ -47,11 +47,10 @@ Click a badge to open the notebook in Colab.
 *Approximate classes from the literature, not measured values. kcal/mol,
 AutoDock Vina, single seed (42).
 
-- **Insulin (4INS vs AlphaFold P01308):** -Cα RMSD = 7.11 Å. AlphaFold
+- **Insulin (4INS vs AlphaFold P01308):** Cα RMSD = 7.11 Å. AlphaFold
   confidence over the insulin chains is mostly low (pLDDT roughly 40-56).
 
-![selectivity plot](selectivity_plot.png)
-
+![COX-1 vs COX-2 selectivity plot](selectivity_plot.png)
 ## What I learned
 
 - Docking ranked the two coxibs as most COX-2 selective, as expected, but
@@ -64,7 +63,7 @@ AutoDock Vina, single seed (42).
   size-normalised scores, fix the COX-1 box, and run longer MD with
   replicates.
 - Insulin: AlphaFold is low-confidence on the isolated A and B chains,
-  consistent with insulin folding as proinsulin. [note that the 7.11 Å global Cα RMSD across chains A and B reflects flexible termini and the absence of the C-peptide tether in the single-chain preproinsulin prediction, even though the helical core aligns closely].
+  consistent with insulin folding as proinsulin (the 7.11 Å global Cα RMSD across chains A and B reflects flexible termini and the absence of the C-peptide tether in the single-chain preproinsulin prediction, even though the helical core aligns closely).
 
 ## How to run
 
