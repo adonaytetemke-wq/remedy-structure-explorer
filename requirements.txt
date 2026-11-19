@@ -1,0 +1,5 @@
+rdkit
+py3Dmol
+vina
+openmm
+mdtraj
