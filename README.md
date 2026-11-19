@@ -53,7 +53,7 @@ AutoDock Vina, single seed (42).
 ![COX-1 vs COX-2 selectivity plot](selectivity_plot.png)
 ## What I learned
 
-- Docking ranked the two coxibs as most COX-2 selective, as expected, but my COX-1 validation failed, so the COX-1 side of every comparison is unreliable until that is fixed.
+- Docking ranked the two coxibs as most COX-2 selective, as expected, though COX-1 validation failed (6.11 Å) due to box placement, making the COX-1 scores here provisional. I resolved this in a follow-up project, [cofolding-benchmark](https://github.com/adonaytetemke-wq/cofolding-benchmark), where a pocket-centered 24 Å box reduced COX-1 ibuprofen re-docking RMSD to 0.62 Å and benchmarked AutoDock Vina against Boltz co-folding.
 - Side-pocket contact (residues 513/523): Celecoxib enters the COX-2 side pocket (`True`) but is sterically excluded from COX-1 (`False`), consistent with Val523 in COX-2 creating extra space compared to the bulkier Ile523 in COX-1.
 - It missed the other classes: aspirin and naproxen showed no clear preference, and indomethacin (COX-1 preferring) scored as COX-2 favouring.
 - Vina scores tend to track molecule size, so some differences may reflect
