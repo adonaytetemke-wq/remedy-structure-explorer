@@ -53,11 +53,9 @@ AutoDock Vina, single seed (42).
 ![COX-1 vs COX-2 selectivity plot](selectivity_plot.png)
 ## What I learned
 
-- Docking ranked the two coxibs as most COX-2 selective, as expected, but
-  my COX-1 validation failed, so the COX-1 side of every comparison is
-  unreliable until that is fixed.
-- It missed the other classes: aspirin and naproxen showed no clear
-  preference, and indomethacin (COX-1 preferring) scored as COX-2 favouring.
+- Docking ranked the two coxibs as most COX-2 selective, as expected, but my COX-1 validation failed, so the COX-1 side of every comparison is unreliable until that is fixed.
+- Side-pocket contact (residues 513/523): Celecoxib enters the COX-2 side pocket (`True`) but is sterically excluded from COX-1 (`False`), consistent with Val523 in COX-2 creating extra space compared to the bulkier Ile523 in COX-1.
+- It missed the other classes: aspirin and naproxen showed no clear preference, and indomethacin (COX-1 preferring) scored as COX-2 favouring.
 - Vina scores tend to track molecule size, so some differences may reflect
   size and not selectivity. Next steps: repeat over several seeds, add
   size-normalised scores, fix the COX-1 box, and run longer MD with
