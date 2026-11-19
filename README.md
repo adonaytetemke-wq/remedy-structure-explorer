@@ -20,20 +20,55 @@ Click a badge to open the notebook in Colab.
 |---|---|
 | Benzene ring | Rigid, flat backbone |
 | Carboxylic acid | Acidity, solubility, binding |
-| Ester (acetyl group) | Transfers to the COX enzyme, blocking pain and inflammation signals |
+| Ester (acetyl group) | Acetyl group is transferred to Ser530 in COX, blocking the channel (this covalent step is not modeled here) | 
 
 ## Results
 
-*Add your own numbers and images after running the notebooks.*
+> COX-1 re-docking currently fails validation (6.11 Å), so COX-1 scores
+> and Δ values below are **provisional**.
 
-- Docking validation: re-docked ibuprofen RMSD = ___ Å
-- Aspirin docking score: ___ kcal/mol; residues contacted: ___
-- MD: mean aspirin RMSD = ___ Å over ___ ps
-- Selectivity: mean score difference for COX-2-selective drugs = ___ kcal/mol
+- **Docking validation:** COX-2 celecoxib re-dock RMSD = 0.56 Å (pass);
+  COX-1 ibuprofen re-dock RMSD = 6.11 Å (fail, threshold 2 Å).
+  Aspirin notebook ibuprofen re-dock RMSD = [TODO] Å
+- **Aspirin docking score:** [TODO] kcal/mol; residues within 4 Å
+  (heavy atoms): [TODO]
+- **MD:** mean aspirin RMSD = [TODO] Å over [TODO] ns
+- **Selectivity:** Δ = COX-2 score minus COX-1 score (more negative favours
+  COX-2). Mean Δ for COX-2-selective drugs = **-4.83 kcal/mol**; for the
+  other five drugs = **-0.42 kcal/mol**.
+
+| Drug | COX-1 | COX-2 | Δ | Literature class* |
+|---|---|---|---|---|
+| Celecoxib | -6.25 | -12.21 | -5.96 | COX-2 selective |
+| Rofecoxib | -7.20 | -10.89 | -3.69 | COX-2 selective |
+| Indomethacin | -6.68 | -9.14 | -2.46 | COX-1 preferring |
+| Ibuprofen | -7.49 | -7.71 | -0.22 | non-selective |
+| Diclofenac | -8.61 | -8.76 | -0.15 | slightly COX-2 preferring |
+| Aspirin | -6.34 | -6.33 | +0.01 | COX-1 preferring |
+| Naproxen | -8.84 | -8.10 | +0.74 | non-selective |
+
+*Approximate classes from the literature, not measured values. kcal/mol,
+AutoDock Vina, single seed (42).
+
+- **Insulin (4INS vs AlphaFold P01308):** Cα RMSD = [TODO] Å. AlphaFold
+  confidence over the insulin chains is mostly low (pLDDT roughly 40-56).
+
+![selectivity plot](selectivity_plot.png)
 
 ## What I learned
 
-*Write 3 to 4 honest sentences, for example: what worked, what surprised you, and where the methods fall short.*
+- Docking ranked the two coxibs as most COX-2 selective, as expected, but
+  my COX-1 validation failed, so the COX-1 side of every comparison is
+  unreliable until that is fixed.
+- It missed the other classes: aspirin and naproxen showed no clear
+  preference, and indomethacin (COX-1 preferring) scored as COX-2 favouring.
+- Vina scores tend to track molecule size, so some differences may reflect
+  size and not selectivity. Next steps: repeat over several seeds, add
+  size-normalised scores, fix the COX-1 box, and run longer MD with
+  replicates.
+- Insulin: AlphaFold is low-confidence on the isolated A and B chains,
+  consistent with insulin folding as proinsulin. [Confirm after computing
+  the superposition.]
 
 ## How to run
 
@@ -43,7 +78,8 @@ Click a badge to open the notebook in Colab.
 
 ## Tools
 
-Python, RDKit, py3Dmol, AutoDock Vina, OpenMM, MDTraj. Structures from the RCSB Protein Data Bank.
+Python, RDKit, py3Dmol, AutoDock Vina, OpenMM, MDTraj. Structures from the
+RCSB Protein Data Bank: 1EQG (COX-1), 3LN1 (COX-2), 4INS (insulin).
 
 ## Limitations
 
